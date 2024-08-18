@@ -1,0 +1,96 @@
+
+
+#███████╗██╗  ██╗██╗██╗     ██╗     ███████╗
+#██╔════╝██║ ██╔╝██║██║     ██║     ██╔════╝
+#███████╗█████╔╝ ██║██║     ██║     ███████╗
+#╚════██║██╔═██╗ ██║██║     ██║     ╚════██║
+#███████║██║  ██╗██║███████╗███████╗███████║
+#╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝
+#V1.1                       
+
+#Creator: Kwanek
+#GitHub: https://github.com/KwanekDev
+#Desc: only non commercial use. 
+
+#Permissions:
+# skills.command.use
+
+
+ #█████╗ ██╗     ██╗     
+#██╔══██╗██║     ██║     
+#███████║██║     ██║     
+#██╔══██║██║     ██║     
+#██║  ██║███████╗███████╗
+#╚═╝  ╚═╝╚══════╝╚══════╝
+
+command /skills [<text>] [<player>] [<text>]:
+    permission: skills.command.use
+    trigger:
+        if arg-1 or arg-2 or arg-3 isn't set:
+            help(player)
+        if arg-1 is "help":
+            help(player)
+        else if arg-1 is "add":
+            if arg 2 is set:
+                if arg 3 is set:
+                    if arg 3 is "teleport":
+                        set {skill::teleport::%arg 2%} to true
+                        send "&a&lɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ᴛᴇʟᴇᴘᴏʀᴛ ʙʏ ᴄʟɪᴄᴋɪɴɢ 'on the floor by Rightclick'" to arg 2
+                        send "&a&lᴅᴏɴᴇ" to player
+                    else if arg 3 is "fireball":
+                        set {skill::fireball::%arg 2%} to true
+                        send "&a&lɴᴏᴡ ʏᴏᴜ ᴄᴀɴ ꜱʜᴏᴏᴛ ꜰɪʀᴇʙᴀʟʟꜱ ʙʏ ᴄʟɪᴄᴋɪɴɢ 'leftclick'" to arg 2
+                        send "&a&lᴅᴏɴᴇ" to player
+                    
+                    else:
+                        help(player)
+                else:
+                    help(player)
+            else:
+                help(player)        
+
+every 1 second:
+    loop all players:
+        if {cooldown::%loop-player%} isn't set:
+            set {cooldown::%loop-player%} to 1
+        if {cooldown::%loop-player%} >= 1:
+            remove 1 from {cooldown::%loop-player%}
+
+    
+
+function help(p: player):
+    send "&3&l━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ꜱᴋɪʟʟꜱ━━━━━━━━━━━━━━━━━━" to {_p}
+    send "&3&l/skills&f [add/help] [player] [teleport/fireball]" to {_p}
+    send "&3&lAuthor(s):&f <link:https://github.com/KwanekDev>Kwanek_" to {_p}
+    send " " to {_p}
+    send "&3&lonly non commercial use." to {_p}
+    send "&3&l━━━━━━━━━━━━━━━━━━━━━━━━━━━━ꜱᴋɪʟʟꜱ━━━━━━━━━━━━━━━━━━━" to {_p}
+
+
+
+
+
+#████████╗███████╗██╗     ███████╗██████╗  ██████╗ ██████╗ ████████╗
+#╚══██╔══╝██╔════╝██║     ██╔════╝██╔══██╗██╔═══██╗██╔══██╗╚══██╔══╝
+   #██║   █████╗  ██║     █████╗  ██████╔╝██║   ██║██████╔╝   ██║   
+   #██║   ██╔══╝  ██║     ██╔══╝  ██╔═══╝ ██║   ██║██╔══██╗   ██║   
+   #██║   ███████╗███████╗███████╗██║     ╚██████╔╝██║  ██║   ██║   
+   #╚═╝   ╚══════╝╚══════╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
+
+on rightclick:
+    if {skill::teleport::%player%} is true:
+        if {cooldown::%player%} <= 1:
+            set {cooldown::%player%} to 20
+            set {_loc33} to location of the block 5 horizontally in front player
+            teleport player to {_loc33} 
+        else:
+            send action bar "&cCooldown, please wait..." to player
+    
+#███████╗██╗██████╗ ███████╗██████╗  █████╗ ██╗     ██╗     
+#██╔════╝██║██╔══██╗██╔════╝██╔══██╗██╔══██╗██║     ██║     
+#█████╗  ██║██████╔╝█████╗  ██████╔╝███████║██║     ██║     
+#██╔══╝  ██║██╔══██╗██╔══╝  ██╔══██╗██╔══██║██║     ██║     
+#██║     ██║██║  ██║███████╗██████╔╝██║  ██║███████╗███████╗
+#╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝
+                                                           
+#Comming soon
