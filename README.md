@@ -10,9 +10,6 @@
 
 <p align="left">✨ If u want you can use it for non commercial projects or for small onlys :D</p>
 
-
-<h2 align="left">I </h2>
-
 <div align="left">
   <img src="https://avatars.githubusercontent.com/u/39464898?s=200&v=4" height="40" alt="skript_logo"  />
   <img width="12" />
