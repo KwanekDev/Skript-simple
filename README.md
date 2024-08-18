@@ -1,4 +1,4 @@
-<h1 align="left">Hey 👋 There is simple skript projects (W.I.P) ?</h1>
+<h1 align="left">Hey 👋 There is simple skript projects (W.I.P) </h1>
 
 ###
 
